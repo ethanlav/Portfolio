@@ -3,126 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio BUT GEII - Ethan Lavignon</title>
+    <title>Ethan Lavignon | Expertise GEII & Ferroviaire</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
-        /* Styles Généraux */
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #1a1a1a; color: white; scroll-behavior: smooth; }
+        :root { 
+            --dark: #080808; 
+            --gray: #121212; 
+            --blue: #003399; 
+            --orange: #ff4500; 
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * { box-sizing: border-box; outline: none; }
+        body { 
+            margin: 0; 
+            font-family: 'Montserrat', sans-serif; 
+            background: var(--dark); 
+            color: var(--white); 
+            scroll-behavior: smooth; 
+            overflow-x: hidden;
+        }
+
+        /* Barre de progression dynamique */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--blue), var(--orange));
+            z-index: 3000;
+            width: 0%;
+        }
+
+        /* Navigation Glassmorphism */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 10%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(15px);
+            position: fixed;
+            width: 100%;
+            z-index: 2000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo { font-family: 'Syncopate', sans-serif; font-size: 1.2rem; font-weight: 700; letter-spacing: 2px; color: var(--orange); }
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--orange); }
+
+        /* Sections & Layout */
+        section {
+            min-height: 100vh;
+            padding: 120px 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        section.visible { opacity: 1; transform: translateY(0); }
+        .bg-gray { background: var(--gray); }
+
+        /* Typographie */
+        h1 { font-family: 'Syncopate', sans-serif; font-size: clamp(2rem, 8vw, 5rem); line-height: 1; margin: 0; }
+        .outline-text { color: transparent; -webkit-text-stroke: 1px var(--white); opacity: 0.3; }
+        h2 { font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--orange); }
+
+        /* Boutons Futuristes */
+        .btn-main {
+            padding: 18px 45px;
+            background: var(--blue);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border: none;
+            display: inline-block;
+            margin-top: 2rem;
+            position: relative;
+            transition: 0.4s;
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+        }
+
+        .btn-main:hover {
+            background: var(--orange);
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 69, 0, 0.4);
+        }
+
+        /* Flex & Grids */
+        .row { display: flex; align-items: center; gap: 4rem; flex-wrap: wrap; margin-top: 3rem; }
+        .col-text { flex: 1.5; min-width: 300px; }
+        .col-img { flex: 1; min-width: 300px; position: relative; }
         
-        /* Menu de Navigation (Relié aux sections) */
-        nav { display: flex; justify-content: space-between; padding: 20px 50px; background: #000; position: fixed; width: 100%; box-sizing: border-box; z-index: 1000; border-bottom: 1px solid #333; }
-        nav a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.9rem; opacity: 0.8; }
-        nav a:hover { opacity: 1; color: #ff4500; }
+        .col-img img {
+            width: 100%;
+            filter: grayscale(100%);
+            transition: 0.6s;
+            border-left: 5px solid var(--orange);
+        }
 
-        /* Sections */
-        section { padding: 120px 50px; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; box-sizing: border-box; }
-        .dark { background-color: #000; }
-        .gray { background-color: #1c1c1c; }
+        .col-img:hover img { filter: grayscale(0%); transform: translate(10px, -10px); }
 
-        /* Boutons LIRE */
-        .btn-lire { background: #000050; color: white; padding: 10px 25px; border-radius: 20px; text-decoration: none; border: 1px solid #333; font-weight: bold; display: inline-flex; align-items: center; transition: 0.3s; }
-        .btn-lire:hover { background: #000080; border-color: white; }
+        /* Cartes Compétences */
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            width: 100%;
+        }
 
-        /* Mise en page de la section Bonjour (Ta capture) */
-        .intro-container { display: flex; width: 90%; max-width: 1200px; background: #000; border: 1px solid #333; }
-        .intro-img { flex: 1; background: #ccc; min-height: 300px; } /* Remplace par une photo si tu veux */
-        .intro-text { flex: 2; padding: 60px; display: flex; flex-direction: column; justify-content: center; }
+        .skill-card {
+            background: var(--glass);
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
 
-        /* Mise en page Objectif (Bandeau avec photo) */
-        .banner { display: flex; width: 90%; max-width: 1200px; background: #000033; border-radius: 10px; overflow: hidden; margin-top: 30px; }
-        .banner-text { padding: 40px; flex: 1; }
-        .banner-img { flex: 1; background-image: url('sncf.avif'); background-size: cover; background-position: center; }
+        .skill-card:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--orange); }
+        .skill-card::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--blue);
+        }
 
-        /* Grille Projets & Scolarité */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; width: 90%; max-width: 1200px; margin-top: 40px; }
-        .card { background: white; color: black; padding: 30px; border-radius: 5px; }
+        /* Footer */
+        footer { padding: 5rem 10%; background: #000; border-top: 1px solid #222; text-align: center; }
 
-        footer { padding: 20px; background: #000; text-align: center; font-size: 0.8rem; border-top: 1px solid #333; }
     </style>
 </head>
 <body>
 
+    <div id="scroll-progress"></div>
+
     <nav>
-        <div style="font-weight: bold;">PortfolioBUTGEII</div>
-        <div>
-            <a href="#accueil">Accueil</a>
-            <a href="#moi">Moi</a>
-            <a href="#professionnel">Professionnel</a>
-            <a href="#scolarite">Scolarité</a>
-            <a href="#projets">Projets</a>
+        <div class="logo">E.LAVIGNON</div>
+        <div class="nav-links">
+            <a href="#accueil">Home</a>
+            <a href="#pro">SNCF</a>
+            <a href="#lab">Lab</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
-    <section id="accueil" class="dark">
-        <p>LAVIGNON Ethan</p>
-        <h1 style="font-size: 5rem; margin: 0;">PORTFOLIO</h1>
-        <a href="#moi" class="btn-lire" style="margin-top: 30px;">MOI</a>
+    <section id="accueil">
+        <h1 class="outline-text">ETHAN</h1>
+        <h1>LAVIGNON</h1>
+        <p style="font-size: 1.2rem; letter-spacing: 5px; margin-top: 1rem; opacity: 0.6;">B.U.T GÉNIE ÉLECTRIQUE • MAINTENANCE FERROVIAIRE</p>
+        <a href="#pro" class="btn-main">Explorer le Projet</a>
     </section>
 
-    <section id="moi" class="gray">
-        <div class="intro-container">
-            <div class="intro-img"></div> <div class="intro-text">
-                <h1 style="font-size: 3rem; margin: 0;">Bonjour</h1>
-                <p>Je suis Ethan LAVIGNON, passionné par l'électronique et l'automatisme.</p>
+    <section id="bonjour" class="bg-gray">
+        <div class="row">
+            <div class="col-img">
+                <img src="sncf.avif" alt="Technique Terrain">
             </div>
-        </div>
-
-        <div style="text-align: center; max-width: 800px; margin-top: 60px;">
-            <h2>Mon histoire</h2>
-            <p>J'ai l'esprit logique, j'aime les maths, mais je ne supporte pas que ça reste sur du papier. C'est pour ça que j'adore la robotique... [Ton texte complet]</p>
-            <div style="display: flex; justify-content: center; gap: 40px; margin-top: 30px;">
-                <a href="#accueil" class="btn-lire">← LIRE</a>
-                <a href="#professionnel" class="btn-lire">LIRE →</a>
+            <div class="col-text">
+                <h2>Bonjour</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8;">
+                    Passionné par l’automatisme et l’électronique, je transforme la théorie du B.U.T GEII en solutions concrètes. 
+                    Mon parcours est marqué par une immersion précoce dans le monde ferroviaire, forgeant ma rigueur et mon sens de la sécurité.
+                </p>
             </div>
         </div>
     </section>
 
-    <section id="professionnel" class="dark">
-        <div class="banner">
-            <div class="banner-text">
-                <h2>Mon Objectif</h2>
-                <p style="color: #ff4500; font-weight: bold;">Assurer la sécurité des circulations</p>
-                <p>Devenir Technicien Supérieur pour garantir la fiabilité du réseau national.</p>
-                <p>Intégrer la SNCF pour valider mon BUT GEII et me spécialiser dans les métiers de la Signalisation Électrique.</p>
+    <section id="pro">
+        <h1 style="font-size: 3rem;">Maintenance Ferroviaire</h1>
+        <div class="row" style="flex-direction: row-reverse;">
+            <div class="col-img">
+                <img src="réseau.png" alt="SNCF Réseau">
             </div>
-            <div class="banner-img"></div> </div>
-    </section>
-
-    <section id="scolarite" class="gray">
-        <h1>Mon parcours scolaire</h1>
-        <div class="grid">
-            <div class="card">
-                <h3>Actuellement : BUT GEII</h3>
-                <p>Lieu : IUT d'Évry</p>
-                <p>Électronique, Informatique, Automatisme, Électricité.</p>
-            </div>
-            <div class="card">
-                <h3>Baccalauréat Général</h3>
-                <p>Spécialités : Mathématiques et Physique-Chimie.</p>
-                <p>Option : NSI (Informatique).</p>
+            <div class="col-text">
+                <p style="border-left: 3px solid var(--orange); padding-left: 20px;">
+                    J'ai effectué ce stage au métier de spécialiste caténaire en établissement de maintenance à l’Infrapole Paris Sud Est[cite: 44]. 
+                    Ce métier est crucial pour assurer la sécurité et la fiabilité du transport ferroviaire[cite: 104].
+                </p>
+                <p>Maintenance 1500V/25000V, travaux de régularisation et intervention sur caténaires[cite: 71, 52].</p>
             </div>
         </div>
     </section>
 
-    <section id="projets" class="dark">
-        <h1>Mes Projets</h1>
-        <div class="grid">
-            <div style="border: 1px solid #333; padding: 20px;">
-                <img src="robotsumo.jpg" style="width: 100%; border-radius: 5px;">
+    <section id="lab" class="bg-gray">
+        <h1 style="font-size: 3rem;" class="outline-text">TECH LAB</h1>
+        <div class="skill-grid" style="margin-top: 3rem;">
+            <div class="skill-card">
                 <h3>Robot Sumo</h3>
-                <p>Détection et éjection autonome d'adversaires.</p>
+                <p>Détection et éjection d'adversaires via capteurs ultrasoniques. Algorithmes de combat autonomes.</p>
             </div>
-            <div style="border: 1px solid #333; padding: 20px;">
-                <img src="arduino.avif" style="width: 100%; border-radius: 5px;">
-                <h3>Systèmes Arduino</h3>
-                <p>Développement de chronomètres et métronomes.</p>
+            <div class="skill-card">
+                <h3>Arduino Ecosystem</h3>
+                <p>Développement de chronomètres numériques, métronomes et suiveurs de ligne infrarouges.</p>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-img"><img src="robotsumo.jpg" alt="Robot Sumo"></div>
+            <div class="col-img"><img src="arduino.avif" alt="Arduino Board"></div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h1 style="font-size: 3rem;">Hard Skills</h1>
+        <div class="skill-grid" style="margin-top: 3rem;">
+            <div class="skill-card">
+                <h3>Électricité</h3>
+                <p>• Câblage Basse Tension<br>• Lecture de schémas industriels<br>• Mesures à l'oscilloscope</p>
+            </div>
+            <div class="skill-card">
+                <h3>Informatique</h3>
+                <p>• Langage C & Python<br>• Programmation Microcontrôleurs<br>• Simulation Proteus & Matlab</p>
+            </div>
+            <div class="skill-card">
+                <h3>Terrain</h3>
+                <p>• Culture Sécurité (SNCF)<br>• Esprit d'équipe<br>• Rigueur Technique</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-gray">
+        <div style="text-align: center;">
+            <h1 class="outline-text">CONTACT</h1>
+            <p style="font-size: 1.5rem; margin-top: 2rem;">Mobilité : Île-de-France (Melun et alentours)</p>
+            <p>Disponible pour une alternance ou un stage terrain GEII.</p>
+            <a href="mailto:votre-email@exemple.com" class="btn-main">Me Contacter</a>
         </div>
     </section>
 
     <footer>
-        Politique de confidentialité | Mentions légales | Politique de cookies <br>
-        Par LAVIGNON Ethan | 2026
+        <p style="opacity: 0.5;">© 2026 ETHAN LAVIGNON • PORTFOLIO B.U.T GEII ÉVRY</p>
     </footer>
 
+    <script>
+        // Barre de progression
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("scroll-progress").style.width = scrolled + "%";
+            
+            // Animation au scroll
+            document.querySelectorAll('section').forEach(section => {
+                let rect = section.getBoundingClientRect();
+                if(rect.top < window.innerHeight * 0.8) {
+                    section.classList.add('visible');
+                }
+            });
+        };
+
+        // Initialisation de la première section
+        window.onload = () => document.getElementById('accueil').classList.add('visible');
+    </script>
 </body>
 </html>
