@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio BUT GEII - Ethan Lavignon</title>
+    <style>
+        body { margin: 0; font-family: 'Arial', sans-serif; background-color: #1a1a1a; color: white; }
+        nav { display: flex; justify-content: space-between; padding: 20px 50px; background: #000; position: fixed; width: 100%; box-sizing: border-box; z-index: 1000; }
+        section { padding: 100px 50px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh; border-bottom: 2px solid #333; }
+        .dark { background-color: #000; }
+        .gray { background-color: #333; }
+        .btn-lire { background: #000050; color: white; padding: 10px 30px; border-radius: 20px; text-decoration: none; border: 1px solid #fff; margin: 20px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 80%; }
+        .card { background: white; color: black; padding: 20px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div>PortfolioBUTGEII</div>
+        <div>Accueil | Moi | Professionnel | Scolarité | Plus</div>
+    </nav>
+
+    <section class="dark">
+        <h3>LAVIGNON Ethan</h3>
+        <h1>PORTFOLIO</h1>
+        <a href="#moi" class="btn-lire">MOI</a>
+    </section>
+
+    <section id="moi" class="gray">
+        <h2>Mon histoire</h2>
+        <p style="max-width: 800px; text-align: center;">J'ai l'esprit logique, j'aime les maths... [Ton texte ici]</p>
+        <div style="display:flex;">
+            <a href="#" class="btn-lire">← LIRE</a>
+            <a href="#" class="btn-lire">LIRE →</a>
+        </div>
+    </section>
+
+    <section class="dark">
+        <div class="grid">
+            <div class="card">
+                <h2>Électricité & Mesures</h2>
+                <ul><li>Câblage basse tension</li><li>Utilisation multimètre</li></ul>
+            </div>
+            <div class="card">
+                <h2>Informatique & Programmation</h2>
+                <ul><li>Langage C</li><li>Arduino</li></ul>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
