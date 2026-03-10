@@ -2,86 +2,126 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio BUT GEII - Ethan Lavignon</title>
     <style>
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #1a1a1a; color: white; line-height: 1.6; }
-        nav { display: flex; justify-content: space-between; padding: 20px 50px; background: #000; position: fixed; width: 100%; box-sizing: border-box; z-index: 1000; }
-        section { padding: 100px 50px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; }
+        /* Styles Généraux */
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #1a1a1a; color: white; scroll-behavior: smooth; }
+        
+        /* Menu de Navigation (Relié aux sections) */
+        nav { display: flex; justify-content: space-between; padding: 20px 50px; background: #000; position: fixed; width: 100%; box-sizing: border-box; z-index: 1000; border-bottom: 1px solid #333; }
+        nav a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.9rem; opacity: 0.8; }
+        nav a:hover { opacity: 1; color: #ff4500; }
+
+        /* Sections */
+        section { padding: 120px 50px; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; box-sizing: border-box; }
         .dark { background-color: #000; }
         .gray { background-color: #1c1c1c; }
-        .btn-lire { background: #000050; color: white; padding: 10px 30px; border-radius: 20px; text-decoration: none; border: 1px solid #333; margin-top: 20px; font-weight: bold; }
-        
-        /* Style des bannières avec images (Capture 3) */
-        .banner { display: flex; width: 90%; background: #000033; border-radius: 10px; overflow: hidden; margin-top: 50px; }
+
+        /* Boutons LIRE */
+        .btn-lire { background: #000050; color: white; padding: 10px 25px; border-radius: 20px; text-decoration: none; border: 1px solid #333; font-weight: bold; display: inline-flex; align-items: center; transition: 0.3s; }
+        .btn-lire:hover { background: #000080; border-color: white; }
+
+        /* Mise en page de la section Bonjour (Ta capture) */
+        .intro-container { display: flex; width: 90%; max-width: 1200px; background: #000; border: 1px solid #333; }
+        .intro-img { flex: 1; background: #ccc; min-height: 300px; } /* Remplace par une photo si tu veux */
+        .intro-text { flex: 2; padding: 60px; display: flex; flex-direction: column; justify-content: center; }
+
+        /* Mise en page Objectif (Bandeau avec photo) */
+        .banner { display: flex; width: 90%; max-width: 1200px; background: #000033; border-radius: 10px; overflow: hidden; margin-top: 30px; }
         .banner-text { padding: 40px; flex: 1; }
-        .banner-img { flex: 1; background-size: cover; background-position: center; min-height: 300px; }
-        
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; width: 90%; margin-top: 50px; }
-        .card { background: white; color: black; padding: 30px; border-radius: 5px; text-align: left; }
-        h1 { font-size: 4rem; margin: 0; }
-        .highlight { color: #ff4500; font-weight: bold; }
+        .banner-img { flex: 1; background-image: url('sncf.avif'); background-size: cover; background-position: center; }
+
+        /* Grille Projets & Scolarité */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; width: 90%; max-width: 1200px; margin-top: 40px; }
+        .card { background: white; color: black; padding: 30px; border-radius: 5px; }
+
+        footer { padding: 20px; background: #000; text-align: center; font-size: 0.8rem; border-top: 1px solid #333; }
     </style>
 </head>
 <body>
 
     <nav>
         <div style="font-weight: bold;">PortfolioBUTGEII</div>
-        <div style="font-size: 0.9rem;">Accueil &nbsp; Moi &nbsp; Professionnel &nbsp; Scolarité &nbsp; Plus</div>
+        <div>
+            <a href="#accueil">Accueil</a>
+            <a href="#moi">Moi</a>
+            <a href="#professionnel">Professionnel</a>
+            <a href="#scolarite">Scolarité</a>
+            <a href="#projets">Projets</a>
+        </div>
     </nav>
 
-    <section class="dark">
+    <section id="accueil" class="dark">
         <p>LAVIGNON Ethan</p>
-        <h1>PORTFOLIO</h1>
-        <a href="#pro" class="btn-lire">MOI</a>
+        <h1 style="font-size: 5rem; margin: 0;">PORTFOLIO</h1>
+        <a href="#moi" class="btn-lire" style="margin-top: 30px;">MOI</a>
     </section>
 
-    <section id="pro" class="gray">
+    <section id="moi" class="gray">
+        <div class="intro-container">
+            <div class="intro-img"></div> <div class="intro-text">
+                <h1 style="font-size: 3rem; margin: 0;">Bonjour</h1>
+                <p>Je suis Ethan LAVIGNON, passionné par l'électronique et l'automatisme.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; max-width: 800px; margin-top: 60px;">
+            <h2>Mon histoire</h2>
+            <p>J'ai l'esprit logique, j'aime les maths, mais je ne supporte pas que ça reste sur du papier. C'est pour ça que j'adore la robotique... [Ton texte complet]</p>
+            <div style="display: flex; justify-content: center; gap: 40px; margin-top: 30px;">
+                <a href="#accueil" class="btn-lire">← LIRE</a>
+                <a href="#professionnel" class="btn-lire">LIRE →</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="professionnel" class="dark">
         <div class="banner">
             <div class="banner-text">
-                <h2 style="font-size: 2.5rem;">Mon Objectif</h2>
-                <p class="highlight">Assurer la sécurité des circulations</p>
+                <h2>Mon Objectif</h2>
+                <p style="color: #ff4500; font-weight: bold;">Assurer la sécurité des circulations</p>
                 <p>Devenir Technicien Supérieur pour garantir la fiabilité du réseau national.</p>
                 <p>Intégrer la SNCF pour valider mon BUT GEII et me spécialiser dans les métiers de la Signalisation Électrique.</p>
             </div>
-            <div class="banner-img" style="background-image: url('sncf.avif');"></div>
-        </div>
+            <div class="banner-img"></div> </div>
     </section>
 
-    <section class="dark">
-        <h2 style="font-size: 3rem;">PROJETS</h2>
-        
-        <div class="banner" style="background: transparent; border: 1px solid #333;">
-            <div class="banner-text">
-                <h3>Le Robot Sumo</h3>
-                <p>J'ai conçu ce robot pour qu'il soit capable de détecter et d'éjecter un adversaire hors d'un ring de manière autonome...</p>
-            </div>
-            <div class="banner-img" style="background-image: url('robotsumo.jpg'); background-size: contain; background-repeat: no-repeat;"></div>
-        </div>
-
-        <div class="banner" style="background: transparent; border: 1px solid #333; margin-top: 20px;">
-            <div class="banner-text">
-                <h3>Arduino</h3>
-                <p>L'utilisation de la plateforme Arduino est au cœur de tous mes projets technologiques...</p>
-            </div>
-            <div class="banner-img" style="background-image: url('arduino.avif'); background-size: contain; background-repeat: no-repeat;"></div>
-        </div>
-    </section>
-
-    <section class="gray">
+    <section id="scolarite" class="gray">
+        <h1>Mon parcours scolaire</h1>
         <div class="grid">
             <div class="card">
-                <h2>Électricité & Mesures</h2>
-                <p>Lecture de schémas électriques industriels.<br>Câblage basse tension (BT).<br>Utilisation du multimètre et de l'oscilloscope.</p>
+                <h3>Actuellement : BUT GEII</h3>
+                <p>Lieu : IUT d'Évry</p>
+                <p>Électronique, Informatique, Automatisme, Électricité.</p>
             </div>
             <div class="card">
-                <h2>Informatique & Programmation</h2>
-                <p>Langage C (Systèmes embarqués).<br>Langage Python.<br>Environnement Arduino.</p>
+                <h3>Baccalauréat Général</h3>
+                <p>Spécialités : Mathématiques et Physique-Chimie.</p>
+                <p>Option : NSI (Informatique).</p>
             </div>
         </div>
     </section>
 
-    <footer style="padding: 20px; font-size: 0.8rem; text-align: center; background: #000; border-top: 1px solid #333;">
-        Par LAVIGNON Ethan | BUT GEII Évry
+    <section id="projets" class="dark">
+        <h1>Mes Projets</h1>
+        <div class="grid">
+            <div style="border: 1px solid #333; padding: 20px;">
+                <img src="robotsumo.jpg" style="width: 100%; border-radius: 5px;">
+                <h3>Robot Sumo</h3>
+                <p>Détection et éjection autonome d'adversaires.</p>
+            </div>
+            <div style="border: 1px solid #333; padding: 20px;">
+                <img src="arduino.avif" style="width: 100%; border-radius: 5px;">
+                <h3>Systèmes Arduino</h3>
+                <p>Développement de chronomètres et métronomes.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        Politique de confidentialité | Mentions légales | Politique de cookies <br>
+        Par LAVIGNON Ethan | 2026
     </footer>
 
 </body>
