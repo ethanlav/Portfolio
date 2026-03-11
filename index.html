@@ -6,6 +6,22 @@
     <title>Ethan Lavignon | Portfolio BUT GEII - 14 Pages</title>
     <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
+        .embed-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: #111;
+            border-radius: 10px;
+            border: 1px solid #333;
+            margin-top: 20px;
+            overflow-x: auto;
+            }
+        /* On force les simulateurs à ne pas dépasser sur mobile */
+        .embed-container iframe, .embed-container div {
+            max-width: 100%;
+            }
         :root { --dark: #080808; --gray: #151515; --blue: #002e63; --orange: #ff4500; --text: #e0e0e0; }
         * { box-sizing: border-box; }
         body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--dark); color: var(--text); scroll-behavior: smooth; overflow-x: hidden; }
@@ -53,7 +69,7 @@
     </section>
 
     <section id="p2" class="bg-gray">
-        <h1>PBonjour</h1>
+        <h1>Bonjour</h1>
         <div class="row">
             <div class="col"><p>Je suis Ethan LAVIGNON, passionné par l'électronique et l'automatisme. Mon but est de transformer la théorie en réalisations concrètes sur le terrain.</p></div>
             <div class="col" style="background:#222; height:200px; border-radius:10px; display:flex; align-items:center; justify-content:center;">PHOTO PROFIL</div>
@@ -65,16 +81,16 @@
            <div class="col" class="img-frame">
            <img src="geii.png" alt="Arduino" style="max-width: 600px; height: auto;">
         </div>
-        <p>Curieux et rigoureux, j'aime comprendre le fonctionnement des systèmes complexes. Mon parcours au sein de l'IUT d'Évry m'a permis de forger une identité technique forte tournée vers l'industrie et le ferroviaire.</p>
+        Curieux et rigoureux, j'aime comprendre le fonctionnement des systèmes complexes. Mon parcours au sein de l'IUT d'Évry m'a permis de forger une identité technique forte tournée vers l'industrie et le ferroviaire.</p>
     </section>
 
     <section id="p4" class="bg-gray">
         <h2>PObjectif Professionnel</h2>
+        <h3>Signalisation Électrique</h3>
         <div class="row" style="flex-direction: row-reverse;">
            <div class="col" class="img-frame">
            <img src="sncf.png" alt="Technicien SNCF" style="max-width: 600px; height: auto;">
         </div>
-                <h3>Signalisation Électrique</h3>
                 <p>Mon but : Intégrer la SNCF en tant que Technicien Supérieur. Je souhaite garantir la sécurité des circulations via la maintenance des systèmes de sécurité.</p>
             </div>
         </div>
@@ -96,7 +112,10 @@
         </div>
                 <p><strong>Caténairiste :</strong> Stage à l'Infrapole Paris Sud Est. J'ai découvert un métier crucial pour assurer la sécurité et la fiabilité du transport ferroviaire.</p>
             </div>
-        </div>
+                <p>Mon premier stage en 3ème chez SNCF Réseau à Melun.</p>
+            </div>
+                <p>Mon deuxième stage en 2nd aux travaux chez SNCF Réseau à Villeneuve-le-Roi.</p>
+            </div>
     </section>
 
     <section id="p7">
@@ -111,19 +130,38 @@
 
     <section id="p8" class="bg-gray">
         <h2>Projet 2 - Suiveur de ligne</h2>
-        <p>La réalisation de ce robot repose sur l'utilisation de capteurs infrarouges capables de distinguer le contraste entre une ligne et le sol. Ce projet est crucial pour comprendre l'automatisme, car il demande un ajustement constant de la trajectoire pour que le robot reste sur sa voie avec fluidité.</p>
-    </section>
-
-    <section id="p9">
-        <h2>Projet 3 - Chronomètre</h2>
-        <div class="row">
-            <div class="col"><p>Développement d'un chronomètre numérique. Ce projet nécessite une logique rigoureuse pour gérer le comptage, les pauses et les remises à zéro. C'est un outil simple en apparence, mais qui demande une parfaite maîtrise de l'interface entre l'utilisateur et la machine.</p></div>
+        <p>Testez la logique d'évitement : si les capteurs rouges touchent la ligne noire, le système détecte une erreur.</p>
+        <div class="embed-container">
+            <div style="transform: scale(0.8);"> <div id="track" style="width: 600px; height: 400px; border: 3px solid #333; position: relative; background: #f0f0f0; margin: auto;">
+                    <div id="line" style="width: 50px; height: 100%; background: #000; position: absolute; left: 275px;"></div>
+                    <div id="robot" style="width: 120px; height: 80px; background: #0055ff; position: absolute; top: 300px; left: 240px; border-radius: 8px; transition: left 0.3s ease;">
+                        <div id="s-left" style="width: 20px; height: 20px; background: red; position: absolute; top: -10px; left: 5px; border-radius: 50%; border: 2px solid white;"></div>
+                        <div id="s-right" style="width: 20px; height: 20px; background: red; position: absolute; top: -10px; right: 5px; border-radius: 50%; border: 2px solid white;"></div>
+                    </div>
+                </div>
+                <div style="text-align:center; margin-top:20px;">
+                    <button class="btn-lire" onclick="moveRobot('left')">⬅️ Gauche</button>
+                    <button class="btn-lire" onclick="moveRobot('right')">Droite ➡️</button>
+                    <div id="status-robot" style="color:black; margin-top:10px; font-weight:bold;">Statut : Aligné</div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="p10" class="bg-gray">
-        <h2>Projet 4 - Métronome</h2>
-        <p>Création d'un métronome réglable via potentiomètre. Pour transformer une cadence mathématique en un signal physique, sonore ou visuel. Ce projet est idéal pour comprendre la gestion des fréquences et des cycles répétitifs en électronique. </p>
+    <section id="p9">
+    <h2>Page 9: Projet 3 - Chronomètre</h2>
+    <div class="embed-container">
+        <div id="chrono-container" style="background:#000; padding:30px; border-radius:15px; text-align:center; border:2px solid #333;">
+                <div style="display:flex; gap:20px; justify-content:center;">
+                    <div id="digit-tens" style="background:#111; color:#00ff00; font-size:80px; padding:20px; border:3px solid #444; font-family:monospace;">0</div>
+                    <div id="digit-units" style="background:#111; color:#00ff00; font-size:80px; padding:20px; border:3px solid #444; font-family:monospace;">0</div>
+                </div>
+                <div style="margin-top:20px;">
+                    <button class="btn-lire" id="btn-stop" onclick="toggleChrono()">Arrêter</button>
+                    <button class="btn-lire" onclick="resetChrono()" style="background:#555;">Reset</button>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="p11">
@@ -141,7 +179,13 @@
             <div class="col" class="card"><h3>Logiciels</h3><p>Langage C, Python, Arduino, Proteus, Matlab.</p></div>
         </div>
     </section>
-
+    <section id="p10" class="bg-gray">
+        <h2>Page 10: Projet 4 - Métronome</h2>
+        <p>Outil de gestion du tempo pour tester la régularité des signaux de sortie.</p>
+        <div class="embed-container">
+            <iframe src="https://guitarapp.com/metronome-embed.html" title="Online Metronome" style="width: 360px; height:500px; border-radius: 15px; border: none; background: white;"></iframe>
+        </div>
+    </section>
     <section id="p13" class="bg-gray">
         <h1>Soft Skills</h1>
         <div class="row">
