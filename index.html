@@ -3,32 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethan Lavignon | Portfolio BUT GEII - 14 Pages</title>
+    <title>Ethan Lavignon | Portfolio BUT GEII</title>
     <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
-        .embed-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            background: #111;
-            border-radius: 10px;
-            border: 1px solid #333;
-            margin-top: 20px;
-            overflow-x: auto;
-            }
-        /* On force les simulateurs à ne pas dépasser sur mobile */
-        .embed-container iframe, .embed-container div {
-            max-width: 100%;
-            }
         :root { --dark: #080808; --gray: #151515; --blue: #002e63; --orange: #ff4500; --text: #e0e0e0; }
         * { box-sizing: border-box; }
         body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--dark); color: var(--text); scroll-behavior: smooth; overflow-x: hidden; }
         #progress-bar { position: fixed; top: 0; left: 0; height: 5px; background: linear-gradient(to right, var(--blue), var(--orange)); width: 0%; z-index: 3000; }
         
         nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: rgba(0,0,0,0.95); backdrop-filter: blur(10px); position: fixed; width: 100%; z-index: 2000; border-bottom: 1px solid #222; }
-        .logo { font-family: 'Syncopate', sans-serif; font-size:  0.8rem; color: var(--orange); }
+        .logo { font-family: 'Syncopate', sans-serif; font-size: 0.8rem; color: var(--orange); }
         .nav-links { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
         .nav-links a { color: white; text-decoration: none; font-size: 0.55rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; padding: 4px; transition: 0.3s; }
         .nav-links a:hover { color: var(--orange); }
@@ -39,7 +23,7 @@
         h1 { font-family: 'Syncopate', sans-serif; font-size: clamp(1.5rem, 5vw, 2.5rem); margin: 0; text-transform: uppercase; }
         h2 { color: var(--orange); font-family: 'Syncopate'; font-size: 1.1rem; margin-bottom: 20px; }
         
-        .btn-lire { background: var(--blue); color: white; padding: 12px 25px; border-radius: 20px; text-decoration: none; font-weight: 700; border: 1px solid #444; display: inline-flex; align-items: center; margin-top: 20px; transition: 0.3s; font-size: 0.8rem; }
+        .btn-lire { background: var(--blue); color: white; padding: 12px 25px; border-radius: 20px; text-decoration: none; font-weight: 700; border: 1px solid #444; display: inline-flex; align-items: center; margin-top: 20px; transition: 0.3s; font-size: 0.8rem; cursor: pointer; }
         .btn-lire:hover { background: var(--orange); transform: scale(1.05); }
 
         .row { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; margin-top: 30px; }
@@ -48,6 +32,8 @@
         
         .card { background: #111; padding: 30px; border-top: 4px solid var(--blue); border-radius: 5px; margin-top: 20px; }
         .card h3 { margin-top: 0; color: var(--orange); font-size: 1rem; }
+
+        .embed-container { width: 100%; display: flex; justify-content: center; align-items: center; padding: 20px; background: #111; border-radius: 10px; border: 1px solid #333; margin-top: 20px; overflow-x: auto; }
 
         footer { padding: 40px; background: #000; text-align: center; border-top: 1px solid #222; font-size: 0.7rem; }
     </style>
@@ -72,25 +58,24 @@
         <h1>Bonjour</h1>
         <div class="row">
             <div class="col"><p>Je suis Ethan LAVIGNON, passionné par l'électronique et l'automatisme. Mon but est de transformer la théorie en réalisations concrètes sur le terrain.</p></div>
-            <div class="col" style="background:#222; height:200px; border-radius:10px; display:flex; align-items:center; justify-content:center;">PHOTO PROFIL</div>
+            <div class="col" style="background:#222; height:200px; border-radius:10px; display:flex; align-items:center; justify-content:center;">PHOTO PROFIL ICI</div>
         </div>
     </section>
 
     <section id="p3">
         <h1>À Propos</h1>
-           <div class="col" class="img-frame">
-           <img src="geii.png" alt="Arduino" style="max-width: 600px; height: auto;">
+        <div class="row">
+            <div class="col img-frame"><img src="geii.png" alt="GEII" style="max-width: 600px; height: auto;"></div>
+            <div class="col"><p>Curieux et rigoureux, j'aime comprendre le fonctionnement des systèmes complexes. Mon parcours au sein de l'IUT d'Évry m'a permis de forger une identité technique forte tournée vers l'industrie et le ferroviaire.</p></div>
         </div>
-        Curieux et rigoureux, j'aime comprendre le fonctionnement des systèmes complexes. Mon parcours au sein de l'IUT d'Évry m'a permis de forger une identité technique forte tournée vers l'industrie et le ferroviaire.</p>
     </section>
 
     <section id="p4" class="bg-gray">
-        <h2>PObjectif Professionnel</h2>
-        <h3>Signalisation Électrique</h3>
+        <h2>Objectif Professionnel</h2>
         <div class="row" style="flex-direction: row-reverse;">
-           <div class="col" class="img-frame">
-           <img src="sncf.png" alt="Technicien SNCF" style="max-width: 600px; height: auto;">
-        </div>
+            <div class="col img-frame"><img src="sncf.png" alt="Technicien SNCF" style="max-width: 600px; height: auto;"></div>
+            <div class="col">
+                <h3>Signalisation Électrique</h3>
                 <p>Mon but : Intégrer la SNCF en tant que Technicien Supérieur. Je souhaite garantir la sécurité des circulations via la maintenance des systèmes de sécurité.</p>
             </div>
         </div>
@@ -99,32 +84,28 @@
     <section id="p5">
         <h1>Scolarité</h1>
         <div class="row">
-            <div class="col" class="card"><h3>BUT GEII</h3><p>Électronique, Informatique Industrielle et Automatisme à l'IUT d'Évry.</p></div>
-            <div class="col" class="card"><h3>Parcours</h3><p>Baccalauréat Général : Spécialités Mathématiques et Physique-Chimie. Option NSI.</p></div>
+            <div class="col card"><h3>BUT GEII</h3><p>Électronique, Informatique Industrielle et Automatisme à l'IUT d'Évry.</p></div>
+            <div class="col card"><h3>Parcours</h3><p>Baccalauréat Général : Spécialités Mathématiques et Physique-Chimie. Option NSI.</p></div>
         </div>
     </section>
 
     <section id="p6" class="bg-gray">
         <h1>Expérience Terrain</h1>
         <div class="row">
-           <div class="col" class="img-frame">
-           <img src="réseau.png" alt="SNCF" style="max-width: 600px; height: auto;">
-        </div>
+            <div class="col img-frame"><img src="réseau.png" alt="SNCF" style="max-width: 600px; height: auto;"></div>
+            <div class="col">
                 <p><strong>Caténairiste :</strong> Stage à l'Infrapole Paris Sud Est. J'ai découvert un métier crucial pour assurer la sécurité et la fiabilité du transport ferroviaire.</p>
-            </div>
                 <p>Mon premier stage en 3ème chez SNCF Réseau à Melun.</p>
-            </div>
                 <p>Mon deuxième stage en 2nd aux travaux chez SNCF Réseau à Villeneuve-le-Roi.</p>
             </div>
+        </div>
     </section>
 
     <section id="p7">
         <h2>Projet 1 - Robot Sumo</h2>
         <div class="row">
-           <div class="col" class="img-frame">
-           <img src="robotsumo.jpg" alt="Robot Sumo" style="max-width: 600px; height: auto;">
-        </div>
-            <div class="col">Conception d'un robot pour qu'il soit capable de détecter et d'éjecter un adversaire hors d'un ring de manière autonome. Ce projet demande une maîtrise précise des capteurs de distance et de la puissance des moteurs pour allier stratégie et force de poussée.</p></div>
+            <div class="col img-frame"><img src="robotsumo.jpg" alt="Robot Sumo" style="max-width: 600px; height: auto;"></div>
+            <div class="col"><p>Conception d'un robot capable de détecter et d'éjecter un adversaire hors d'un ring. Ce projet demande une maîtrise précise des capteurs de distance et de la puissance des moteurs.</p></div>
         </div>
     </section>
 
@@ -132,9 +113,10 @@
         <h2>Projet 2 - Suiveur de ligne</h2>
         <p>Testez la logique d'évitement : si les capteurs rouges touchent la ligne noire, le système détecte une erreur.</p>
         <div class="embed-container">
-            <div style="transform: scale(0.8);"> <div id="track" style="width: 600px; height: 400px; border: 3px solid #333; position: relative; background: #f0f0f0; margin: auto;">
+            <div style="transform: scale(0.8);"> 
+                <div id="track" style="width: 600px; height: 300px; border: 3px solid #333; position: relative; background: #f0f0f0; margin: auto; overflow: hidden;">
                     <div id="line" style="width: 50px; height: 100%; background: #000; position: absolute; left: 275px;"></div>
-                    <div id="robot" style="width: 120px; height: 80px; background: #0055ff; position: absolute; top: 300px; left: 240px; border-radius: 8px; transition: left 0.3s ease;">
+                    <div id="robot" style="width: 120px; height: 80px; background: #0055ff; position: absolute; top: 200px; left: 240px; border-radius: 8px; transition: left 0.3s ease;">
                         <div id="s-left" style="width: 20px; height: 20px; background: red; position: absolute; top: -10px; left: 5px; border-radius: 50%; border: 2px solid white;"></div>
                         <div id="s-right" style="width: 20px; height: 20px; background: red; position: absolute; top: -10px; right: 5px; border-radius: 50%; border: 2px solid white;"></div>
                     </div>
@@ -142,67 +124,135 @@
                 <div style="text-align:center; margin-top:20px;">
                     <button class="btn-lire" onclick="moveRobot('left')">⬅️ Gauche</button>
                     <button class="btn-lire" onclick="moveRobot('right')">Droite ➡️</button>
-                    <div id="status-robot" style="color:black; margin-top:10px; font-weight:bold;">Statut : Aligné</div>
+                    <div id="status-robot" style="color:white; margin-top:10px; font-weight:bold;">Statut : Aligné</div>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="p9">
-    <h2>Page 9: Projet 3 - Chronomètre</h2>
-    <div class="embed-container">
-        <div id="chrono-container" style="background:#000; padding:30px; border-radius:15px; text-align:center; border:2px solid #333;">
+        <h2>Projet 3 - Chronomètre</h2>
+        <div class="embed-container">
+            <div id="chrono-container" style="background:#000; padding:30px; border-radius:15px; text-align:center; border:2px solid #333;">
                 <div style="display:flex; gap:20px; justify-content:center;">
                     <div id="digit-tens" style="background:#111; color:#00ff00; font-size:80px; padding:20px; border:3px solid #444; font-family:monospace;">0</div>
                     <div id="digit-units" style="background:#111; color:#00ff00; font-size:80px; padding:20px; border:3px solid #444; font-family:monospace;">0</div>
                 </div>
                 <div style="margin-top:20px;">
-                    <button class="btn-lire" id="btn-stop" onclick="toggleChrono()">Arrêter</button>
+                    <button class="btn-lire" id="btn-stop-chrono" onclick="toggleChrono()">Lancer</button>
                     <button class="btn-lire" onclick="resetChrono()" style="background:#555;">Reset</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="p11">
-        <h2>Projet 5 - Arduino Lab</h2>
-        <div class="col" class="img-frame">
-        <img src="arduino.png" alt="Arduino" style="max-width: 600px; height: auto;">
+    <section id="p11" class="bg-gray">
+        <h2>Projet 4 - Arduino Lab</h2>
+        <div class="row">
+            <div class="col img-frame"><img src="arduino.png" alt="Arduino" style="max-width: 600px; height: auto;"></div>
+            <div class="col"><p>L'utilisation de la plateforme Arduino est au cœur de mes projets technologiques. C'est un outil polyvalent qui demande de savoir lire un schéma, câbler des composants et coder en langage C.</p></div>
         </div>
-        L'utilisation de la plateforme Arduino est au cœur d'un de mes projets technologiques, car elle permet de donner vie à n'importe quelle idée électronique. C'est un outil polyvalent qui demande de savoir lire un schéma, câbler des composants et coder en langage C pour piloter des capteurs ou des moteurs.</p>
     </section>
 
-    <section id="p12">
-        <h1>Hard Skills</h1>
-        <div class="row">
-            <div class="col" class="card"><h3>Technique</h3><p>Câblage BT, Schémas, Oscilloscope, Multimètre.</p></div>
-            <div class="col" class="card"><h3>Logiciels</h3><p>Langage C, Python, Arduino, Proteus, Matlab.</p></div>
-        </div>
-    </section>
-    <section id="p10" class="bg-gray">
-        <h2>Page 10: Projet 4 - Métronome</h2>
+    <section id="p10">
+        <h2>Projet 5 - Métronome</h2>
         <p>Outil de gestion du tempo pour tester la régularité des signaux de sortie.</p>
         <div class="embed-container">
             <iframe src="https://guitarapp.com/metronome-embed.html" title="Online Metronome" style="width: 360px; height:500px; border-radius: 15px; border: none; background: white;"></iframe>
         </div>
     </section>
+
     <section id="p13" class="bg-gray">
         <h1>Soft Skills</h1>
         <div class="row">
-            <div class="col" class="card"><h3>Rigueur</h3><p>Respect strict des procédures et de la sécurité ferroviaire.</p></div>
-            <div class="col" class="card"><h3>Équipe</h3><p>Capacité d'intégration en brigade technique sur le terrain.</p></div>
+            <div class="col card"><h3>Rigueur</h3><p>Respect strict des procédures et de la sécurité ferroviaire.</p></div>
+            <div class="col card"><h3>Équipe</h3><p>Capacité d'intégration en brigade technique sur le terrain.</p></div>
         </div>
     </section>
 
-    <section id="p14">
+    <section id="p12">
+        <h1>Hard Skills</h1>
+        <div class="row">
+            <div class="col card"><h3>Technique</h3><p>Câblage BT, Schémas, Oscilloscope, Multimètre.</p></div>
+            <div class="col card"><h3>Logiciels</h3><p>Langage C, Python, Arduino, Proteus, Matlab.</p></div>
+        </div>
+    </section>
+
+    <section id="p14" class="bg-gray">
         <h1>Contact</h1>
-        <p>ethan.lavignon91@gmail.com </p>
-        <p>07 66 04 72 70</p>
+        <p>📧 ethan.lavignon91@gmail.com </p>
+        <p>📞 07 66 04 72 70</p>
         <a href="#p1" class="btn-lire">RETOUR ACCUEIL ⬆</a>
     </section>
 
     <footer><p>Ethan Lavignon • Portfolio BUT GEII • 2026</p></footer>
 
-    <script>window.onscroll = function() { var winScroll = document.body.scrollTop || document.documentElement.scrollTop; var height = document.documentElement.scrollHeight - document.documentElement.clientHeight; var scrolled = (winScroll / height) * 100; document.getElementById("progress-bar").style.width = scrolled + "%"; };</script>
+    <script>
+        // Barre de progression
+        window.onscroll = function() { 
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop; 
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight; 
+            var scrolled = (winScroll / height) * 100; 
+            document.getElementById("progress-bar").style.width = scrolled + "%"; 
+        };
+
+        // --- SCRIPT ROBOT SUIVEUR (P8) ---
+        let robotLeft = 240;
+        function moveRobot(dir) {
+            const robot = document.getElementById('robot');
+            const status = document.getElementById('status-robot');
+            if(dir === 'left') robotLeft -= 40;
+            else robotLeft += 40;
+            
+            robot.style.left = robotLeft + 'px';
+            
+            // Détection ligne (centre est entre 275 et 325)
+            let sLeft = robotLeft + 5;
+            let sRight = robotLeft + 95;
+            
+            if ((sRight >= 275 && sRight <= 325) || (sLeft >= 275 && sLeft <= 325)) {
+                status.innerHTML = "🚨 COLLISION LIGNE NOIRE !";
+                status.style.color = "red";
+                setTimeout(() => {
+                    robotLeft = 240;
+                    robot.style.left = '240px';
+                    status.innerHTML = "Statut : Réinitialisé";
+                    status.style.color = "white";
+                }, 1000);
+            } else {
+                status.innerHTML = "✅ Trajectoire nominale";
+                status.style.color = "#27ae60";
+            }
+        }
+
+        // --- SCRIPT CHRONO (P9) ---
+        let u = 0, t = 0, timerObj = null, isRunning = false;
+        function toggleChrono() {
+            const btn = document.getElementById('btn-stop-chrono');
+            if(!isRunning) {
+                isRunning = true;
+                btn.innerHTML = "Arrêter";
+                timerObj = setInterval(() => {
+                    u++;
+                    if(u > 9) { u = 0; t++; }
+                    if(t > 6) { t = 0; }
+                    document.getElementById('digit-units').innerHTML = u;
+                    document.getElementById('digit-tens').innerHTML = t;
+                }, 500);
+            } else {
+                clearInterval(timerObj);
+                isRunning = false;
+                btn.innerHTML = "Relancer";
+            }
+        }
+        function resetChrono() {
+            clearInterval(timerObj);
+            isRunning = false;
+            u = 0; t = 0;
+            document.getElementById('digit-units').innerHTML = 0;
+            document.getElementById('digit-tens').innerHTML = 0;
+            document.getElementById('btn-stop-chrono').innerHTML = "Lancer";
+        }
+    </script>
 </body>
 </html>
